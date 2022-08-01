@@ -17,17 +17,17 @@ def _convert(n, base=2):
 
 
 
-
 # Wrapper
 def convert(n, base):
     if not isinstance(n, int):
         raise TypeError("Import must be an integer")
     elif n < 0:
         raise TypeError("Function not designed for negatives")
-    elif 2 > base > 16:
+    elif 2 > base or base > 16:
         raise TypeError("incompatable base")
     else:
-        _convert(n, base)
+        return _convert(n, base)
 
 
 
+print(convert(422, 12))
