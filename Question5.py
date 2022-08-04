@@ -21,8 +21,10 @@ def _towers(n, src, dest, spaces):
 
 # Wrapper
 def towers(n, src, dest, spaces=""):
-            ...
-
-if __name__ == "__main__":
-
-    towers(2, 1, 2)
+    args = [n, src, dest]
+    if not all(isinstance(arg, int) for arg in [n, src, dest]):
+        raise ValueError("All parameters must be an integer")
+    elif not all(0 < arg <= 3 for arg in [n, src, dest]):
+        raise ValueError("All parameters must be between 1 and 3")
+    else:
+        return _towers(n, src, dest, spaces="")

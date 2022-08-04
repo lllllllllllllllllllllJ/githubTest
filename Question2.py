@@ -2,7 +2,6 @@
 # searching online to find an algorthm for the greatest common demonimator through recursion
 
 # code is derived from https://www.tutorialspoint.com/program-to-compute-gcd-of-two-numbers-recursively-in-python
-# involves use of a certain 'Euclidian algorthim' ?
 # performs poorly with larger inputs incuring more unnececary recursions (creates tree)
 
 
@@ -20,7 +19,7 @@ def _GCD(n1, n2):
 
 # wrapper
 def GCD(n1, n2):
-    if not isinstance(n1, int) and not isinstance(n2, int):
+    if not all(isinstance(n, int) for n in [n1, n2]):
         raise TypeError("Input must be an integer")
     else:
         # allowing use of negatives
