@@ -1,31 +1,20 @@
 # Answer to Q1 (with additions from Q4)
 # implementing recursive and iterative solutions for Fibinacci / Factorial
 
+# ==== Functions ==== #
 
-def calcNFactorial(n, type='r'): # am i aloud to use a control flag here ?
-    if not isinstance(n, int):
-        raise TypeError("Import must be an integer")
-    elif n < 0:
-        raise ValueError("Import must not be negative")
-    else:
-        return _factorialRec(n)
-
-
-# iterative
 def _factorialIterative(n):
     fact = 1
     for i in range(n, 1, -1):
         fact *= i
     return fact
 
-# recursive
 def _factorialRec(n):
     fact = 1
     if n > 1:
         fact = n * _factorialRec(n - 1)
     return fact
 
-# iterative 
 def _fibinacciIterative(n):
     fib = 0
     current = 1
@@ -39,7 +28,6 @@ def _fibinacciIterative(n):
             current = fib
     return fib 
 
-# Recursive
 def _fibinacciRec(n):
     fib = 0
     if n < 2:
@@ -48,13 +36,42 @@ def _fibinacciRec(n):
         fib = _fibinacciRec(n - 1) + _fibinacciRec(n - 2)
     return fib
 
+# ===== Wrappers ===== # Redundant ? Can i use control flags ?
 
-# just for checking
-if __name__ == "__main__": 
-    try:
-        print(calcNFactorial("er"))
-    except ValueError as e:
-        print("invalid argument: ", e)
+def factorialIterative(n): 
+    if not isinstance(n, int):
+        raise TypeError("Import must be an integer")
+    elif n < 0:
+        raise ValueError("Import must not be negative")
+    else:
+        return _factorialIterative(n)
 
-    
+def factorialRec(n): 
+    if not isinstance(n, int):
+        raise TypeError("Import must be an integer")
+    elif n < 0:
+        raise ValueError("Import must not be negative")
+    else:
+        return _factorialRec(n)
+
+
+def fibinacciIterative(n): 
+    if not isinstance(n, int):
+        raise TypeError("Import must be an integer")
+    elif n < 0:
+        raise ValueError("Import must not be negative")
+    else:
+        return _fibinacciIterative(n)
+
+
+def fibinacciRec(n): 
+    if not isinstance(n, int):
+        raise TypeError("Import must be an integer")
+    elif n < 0:
+        raise ValueError("Import must not be negative")
+    else:
+        return _fibinacciRec(n) 
+
+# Declare stackoverflow error and add to Recursive functions
+
     

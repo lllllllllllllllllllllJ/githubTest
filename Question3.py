@@ -22,12 +22,10 @@ def convert(n, base):
     if not isinstance(n, int):
         raise TypeError("Import must be an integer")
     elif n < 0:
-        raise TypeError("Function not designed for negatives")
+        raise ValueError("Function not designed for negatives")
     elif 2 > base or base > 16:
-        raise TypeError("incompatable base")
+        raise ValueError("incompatable base")
     else:
         return _convert(n, base)
 
 
-
-print(convert(422, 12))
